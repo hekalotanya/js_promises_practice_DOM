@@ -19,24 +19,25 @@ const promise2 = new Promise((resolve, reject) => {
 });
 
 const promise3 = new Promise((resolve, reject) => {
-  let count = 0;
+  let leftCount = 0;
+  let rightCount = 0;
 
   document.addEventListener('mousedown', (event) => {
     if (event.button === 0) {
-      count++;
+      leftCount++;
     }
 
-    if (count === 2) {
+    if (leftCount > 0 && rightCount > 0) {
       resolve();
     }
   });
 
   document.addEventListener('mousedown', (event) => {
     if (event.button === 2) {
-      count++;
+      rightCount++;
     }
 
-    if (count === 2) {
+    if (leftCount > 0 && rightCount > 0) {
       resolve();
     }
   });
